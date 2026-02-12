@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstring> // Для роботи з рядковими функціями
+ 
+using namespace std;
+ 
+int main() {
+    const int SIZE = 81; // Максимальний розмір тексту (80 символів + 1)
+    char text[SIZE]; // Масив для введення тексту
+    char digits[SIZE] = ""; // Масив для цифр
+    char others[SIZE] = ""; // Масив для інших символів
+ 
+    // Введення тексту
+    cout << "Enter text is 80 symbols: ";
+    cin.getline(text, SIZE); //
+Введення тексту до 80 символів
+ 
+    // Розділення символів на цифри та інші
+    for (int i = 0; i < strlen(text); ++i) {
+        if (isdigit(text[i])) {
+            strncat_s(digits, SIZE,
+&text[i], 1); // Додаємо цифру
+        }
+        else {
+            strncat_s(others, SIZE,
+&text[i], 1); // Додаємо інший символ
+        }
+    }
+ 
+    // Виведення результатів
+    cout << "Numbers: " << digits << endl; // Вивід цифр
+    cout << "Others symbols:
+" << others << endl; // Вивід інших символів
+ 
+    return 0;
+}
